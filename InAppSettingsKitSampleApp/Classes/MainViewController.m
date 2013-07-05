@@ -29,16 +29,14 @@
 
 @interface MainViewController()<UIPopoverControllerDelegate>
 - (void)settingDidChange:(NSNotification*)notification;
-
 @property (nonatomic) UIPopoverController* currentPopoverController;
-
 @end
 
 @implementation MainViewController
-
 @synthesize appSettingsViewController, tabAppSettingsViewController;
 
-- (IASKAppSettingsViewController*)appSettingsViewController {
+- (IASKAppSettingsViewController*)appSettingsViewController
+{
 	if (!appSettingsViewController) {
 		appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
 		appSettingsViewController.delegate = self;
@@ -110,7 +108,9 @@
 }
 
 // optional delegate method for handling mail sending result
-- (void)settingsViewController:(id<IASKViewController>)settingsViewController mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+- (void)settingsViewController:(id<IASKViewController>)settingsViewController
+         mailComposeController:(MFMailComposeViewController *)controller
+           didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
        
     if ( error != nil ) {
         // handle error here
